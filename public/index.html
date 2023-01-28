@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOKEPON!</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+
+</head>
+<body>
+    <section id="title">
+        <h1 class="box-title">🐱 MOKEPON! 🔥💦🌱</h1>
+    </section>
+
+    <section id="beginning">
+        <h2>Rules of the game</h2>
+        <section class="rules">
+            <h3>Choose your pet.</h3>
+            <h3>Choose your sequence of attacks.</h3>
+            <h3>The pet with the most victories wins.</h3> 
+            <h3>Note: The enemy chooses its pet and attacks randomly.</h3>
+            <h3>Each pet has 5 attacks depending on its type.</h3>
+        </section>
+        <h2>Ready for the combat? ⚔💥⚔</h2>
+        <button id="beginning-button">Start Game</button>
+    </section>
+
+    <!-- Primer sección: Selección mascota jugador -->
+    <section id="pet-select">
+        <h2>Select your pet:</h2>
+
+        <!-- Seleccionador de mascota tipo radio.
+        Todos los label pertenencen al grupo petType.
+        Todos tienen un identificador único. -->
+        <div class="box-select" id="pets-container"></div>
+
+        <button id="confirm-button">Select</button>
+    </section>
+
+    <section id="map-section">
+        <h2>Village map</h2>
+        <!-- Crear espacio rectangular para divujar con JS -->
+        <canvas id="village-map">
+            Your browser does not support the HTML canvas tag.
+        </canvas>
+        
+        <button id="arrow" ontouchend="stopMove()" onmouseup="stopMove()" ontouchstart="moveUp()" onmousedown="moveUp()">⬆</button>
+        <div class="move-buttons">
+            <button id="arrow" ontouchend="stopMove()" onmouseup="stopMove()"  ontouchstart="moveLeft()" onmousedown="moveLeft()">⬅</button>
+
+            <button id="arrow" ontouchend="stopMove()" onmouseup="stopMove()" ontouchstart="moveDown()" onmousedown="moveDown()">⬇</button>
+
+            <button id="arrow" ontouchend="stopMove()" onmouseup="stopMove()" ontouchstart="moveRight()" onmousedown="moveRight()">➡</button>
+        </div>
+       
+    </section>
+
+    <!-- Segunda sección: selección ataque jugador -->
+    <section id="attack-select">
+        <h2>Select your attack sequence:</h2>
+        
+        <div class="box-attack" id="attacks-container"></div>
+
+        <div class="box-chose">
+            <div>
+                <h3>Your pet</h3>
+                <div class="box-pet">
+                    <p class="text"><span id="player-pet"></span></p>
+                    <span id="player-pet-img"></span>
+                    <p class="text">💚 <span id="player-wins">0</span> wins</p>
+                </div>
+            </div>
+            
+            <div class="box-result">
+                <h3>Result</h3>
+                <p id="messages"></p>
+                <p id="box-reset">
+                    <button id="reset-button">Reset 🔄</button>
+                </p>
+            </div>
+
+            <div>
+                <h3>Enemy pet</h3>
+                <div class="box-pet">
+                    <p class="text"><span id="pc-pet"></span></p>
+                    <span id="pc-pet-img"></span>
+                    <p class="text">💚 <span id="pc-wins">0</span> wins</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-messages">
+            <div class="box-log">
+                <h3>Your attacks</h3>
+                <p id="my-messages"></p>
+            </div>
+
+            <div class="box-log">
+                <h3>Battle log</h3>
+                <p id="battle-messages"></p>
+            </div>
+            
+            <div class="box-log">
+                <h3>Enemy attacks</h3>
+                <p id="pc-messages"></p>
+            </div>
+        </div>
+    </section>
+    <script src="./mokepon.js"></script>
+</body>
+</html>
